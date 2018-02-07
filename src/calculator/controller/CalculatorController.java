@@ -10,7 +10,7 @@ public class CalculatorController
 	
 	public CalculatorController()
 	{
-		appFrame = new CalculatorFrame();
+		appFrame = new CalculatorFrame(this);
 		appCalculator = new Calculator();
 	}
 	

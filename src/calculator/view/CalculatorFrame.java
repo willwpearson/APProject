@@ -3,7 +3,7 @@ package calculator.view;
 import calculator.controller.CalculatorController;
 import javax.swing.JFrame;
 
-public class CalculatorFrame
+public class CalculatorFrame extends JFrame
 {
 	private CalculatorController appController;
 	private CalculatorPanel appPanel;
@@ -20,7 +20,7 @@ public class CalculatorFrame
 	{
 		this.setContentPane(appPanel);
 		this.setTitle("Calculator");
-		this.setResizeable(false);
+		this.setResizable(false);
 		this.setSize(500, 500);
 		this.setVisible(true);
 	}

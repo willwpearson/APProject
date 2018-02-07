@@ -42,4 +42,9 @@ public class Calculator
 		
 		return quotient;
 	}
+	
+	public void clearMethod()
+	{
+		
+	}
 }
