@@ -124,6 +124,97 @@ public class CalculatorPanel extends JPanel
 	
 	private void setupListeners()
 	{
+		//Number button display listeners
+		zeroButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				String currentText = numbersArea.getText();
+				numbersArea.setText(currentText + "0");
+			}
+		});
+		
+		oneButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				String currentText = numbersArea.getText();
+				numbersArea.setText(currentText + "1");
+			}
+		});
+		
+		twoButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				String currentText = numbersArea.getText();
+				numbersArea.setText(currentText + "2");
+			}
+		});
+		
+		threeButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				String currentText = numbersArea.getText();
+				numbersArea.setText(currentText + "3");
+			}
+		});
+		
+		fourButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				String currentText = numbersArea.getText();
+				numbersArea.setText(currentText + "4");
+			}
+		});
+		
+		fiveButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				String currentText = numbersArea.getText();
+				numbersArea.setText(currentText + "5");
+			}
+		});
+		
+		sixButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				String currentText = numbersArea.getText();
+				numbersArea.setText(currentText + "6");
+			}
+		});
+		
+		sevenButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				String currentText = numbersArea.getText();
+				numbersArea.setText(currentText + "7");
+			}
+		});
+		
+		eightButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				String currentText = numbersArea.getText();
+				numbersArea.setText(currentText + "8");
+			}
+		});
+		
+		nineButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				String currentText = numbersArea.getText();
+				numbersArea.setText(currentText + "9");
+			}
+		});
+		
 		
 	}
 }
