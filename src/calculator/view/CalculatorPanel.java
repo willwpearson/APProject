@@ -65,5 +65,19 @@ public class CalculatorPanel extends JPanel
 		this.add(zeroButton);
 		this.add(oneButton);
 		this.add(twoButton);
+		this.add(threeButton);
+		this.add(fourButton);
+		this.add(fiveButton);
+		this.add(sixButton);
+		this.add(sevenButton);
+		this.add(eightButton);
+		this.add(nineButton);
+		this.add(addButton);
+		this.add(subtractButton);
+		this.add(multiplyButton);
+		this.add(divideButton);
+		this.add(equalsButton);
+		this.add(clearButton);
+		this.add(numbersArea);
 	}
 }
