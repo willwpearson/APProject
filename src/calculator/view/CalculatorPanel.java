@@ -52,10 +52,11 @@ public class CalculatorPanel extends JPanel
 		equalsButton = new JButton("=");
 		clearButton = new JButton("CE");
 		numbersArea = new JTextArea();
+		numbersArea.setBackground(Color.LIGHT_GRAY);
 		
 		setupPanel();
-//		setupLayout();
-//		setupListeners();
+		setupLayout();
+		setupListeners();
 	}
 	
 	private void setupPanel()
@@ -79,5 +80,50 @@ public class CalculatorPanel extends JPanel
 		this.add(equalsButton);
 		this.add(clearButton);
 		this.add(numbersArea);
+	}
+	
+	private void setupLayout()
+	{
+		appLayout.putConstraint(SpringLayout.WEST, oneButton, 0, SpringLayout.WEST, this);
+		appLayout.putConstraint(SpringLayout.SOUTH, oneButton, 0, SpringLayout.NORTH, zeroButton);
+		appLayout.putConstraint(SpringLayout.WEST, zeroButton, 0, SpringLayout.WEST, this);
+		appLayout.putConstraint(SpringLayout.SOUTH, zeroButton, 0, SpringLayout.SOUTH, this);
+		appLayout.putConstraint(SpringLayout.WEST, twoButton, 0, SpringLayout.EAST, oneButton);
+		appLayout.putConstraint(SpringLayout.WEST, threeButton, 0, SpringLayout.EAST, twoButton);
+		appLayout.putConstraint(SpringLayout.SOUTH, threeButton, 0, SpringLayout.SOUTH, twoButton);
+		appLayout.putConstraint(SpringLayout.SOUTH, twoButton, 0, SpringLayout.SOUTH, oneButton);
+		appLayout.putConstraint(SpringLayout.WEST, fourButton, 0, SpringLayout.WEST, this);
+		appLayout.putConstraint(SpringLayout.SOUTH, fourButton, 0, SpringLayout.NORTH, oneButton);
+		appLayout.putConstraint(SpringLayout.WEST, fiveButton, 0, SpringLayout.EAST, fourButton);
+		appLayout.putConstraint(SpringLayout.SOUTH, fiveButton, 0, SpringLayout.SOUTH, fourButton);
+		appLayout.putConstraint(SpringLayout.WEST, sixButton, 0, SpringLayout.EAST, fiveButton);
+		appLayout.putConstraint(SpringLayout.SOUTH, sixButton, 0, SpringLayout.SOUTH, fiveButton);
+		appLayout.putConstraint(SpringLayout.WEST, nineButton, 0, SpringLayout.EAST, eightButton);
+		appLayout.putConstraint(SpringLayout.SOUTH, nineButton, 0, SpringLayout.SOUTH, sevenButton);
+		appLayout.putConstraint(SpringLayout.WEST, eightButton, 0, SpringLayout.EAST, sevenButton);
+		appLayout.putConstraint(SpringLayout.SOUTH, eightButton, 0, SpringLayout.SOUTH, sevenButton);
+		appLayout.putConstraint(SpringLayout.WEST, sevenButton, 0, SpringLayout.WEST, this);
+		appLayout.putConstraint(SpringLayout.SOUTH, sevenButton, 0, SpringLayout.NORTH, fourButton);
+		appLayout.putConstraint(SpringLayout.WEST, clearButton, 0, SpringLayout.WEST, nineButton);
+		appLayout.putConstraint(SpringLayout.SOUTH, clearButton, 0, SpringLayout.NORTH, nineButton);
+		appLayout.putConstraint(SpringLayout.WEST, divideButton, 0, SpringLayout.WEST, equalsButton);
+		appLayout.putConstraint(SpringLayout.WEST, multiplyButton, 0, SpringLayout.WEST, equalsButton);
+		appLayout.putConstraint(SpringLayout.WEST, subtractButton, 0, SpringLayout.WEST, equalsButton);
+		appLayout.putConstraint(SpringLayout.WEST, addButton, 0, SpringLayout.WEST, equalsButton);
+		appLayout.putConstraint(SpringLayout.SOUTH, addButton, 0, SpringLayout.NORTH, equalsButton);
+		appLayout.putConstraint(SpringLayout.WEST, equalsButton, 0, SpringLayout.EAST, threeButton);
+		appLayout.putConstraint(SpringLayout.SOUTH, equalsButton, 0, SpringLayout.SOUTH, zeroButton);
+		appLayout.putConstraint(SpringLayout.SOUTH, divideButton, 0, SpringLayout.NORTH, multiplyButton);
+		appLayout.putConstraint(SpringLayout.SOUTH, multiplyButton, 0, SpringLayout.NORTH, subtractButton);
+		appLayout.putConstraint(SpringLayout.SOUTH, subtractButton, 0, SpringLayout.NORTH, addButton);
+		appLayout.putConstraint(SpringLayout.NORTH, numbersArea, 10, SpringLayout.NORTH, this);
+		appLayout.putConstraint(SpringLayout.WEST, numbersArea, 10, SpringLayout.WEST, this);
+		appLayout.putConstraint(SpringLayout.SOUTH, numbersArea, 0, SpringLayout.NORTH, clearButton);
+		appLayout.putConstraint(SpringLayout.EAST, numbersArea, 0, SpringLayout.EAST, divideButton);	
+	}
+	
+	private void setupListeners()
+	{
+		
 	}
 }
