@@ -262,5 +262,22 @@ public class CalculatorPanel extends JPanel
 				numbersArea.setText("");
 			}
 		});
+		
+		equalsButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				String currentText = numbersArea.getText();
+				
+				if(currentText.contains("*"))
+				{
+					//int first = currentText.substring((currentText.indexOf("*")) - 3, currentText.indexOf("*") - 2);
+				}
+				else if(currentText.contains("÷"))
+				{
+					
+				}
+			}
+		});
 	}
 }
