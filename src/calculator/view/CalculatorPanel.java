@@ -254,5 +254,13 @@ public class CalculatorPanel extends JPanel
 		});
 		
 		//Calculation Listeners
+		
+		clearButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				numbersArea.setText("");
+			}
+		});
 	}
 }
