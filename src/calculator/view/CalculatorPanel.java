@@ -215,6 +215,44 @@ public class CalculatorPanel extends JPanel
 			}
 		});
 		
+		//Operation Display Listeners
 		
+		addButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				String currentText = numbersArea.getText();
+				numbersArea.setText(currentText + " + ");
+			}
+		});
+		
+		subtractButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				String currentText = numbersArea.getText();
+				numbersArea.setText(currentText + " - ");
+			}
+		});
+		
+		multiplyButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				String currentText = numbersArea.getText();
+				numbersArea.setText(currentText + " * ");
+			}
+		});
+		
+		divideButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				String currentText = numbersArea.getText();
+				numbersArea.setText(currentText + " ÷ ");
+			}
+		});
+		
+		//Calculation Listeners
 	}
 }
