@@ -25,7 +25,7 @@ public class Calculator
 		return difference;
 	}
 	
-	public int mulitplyMethod(int first, int second)
+	public int multiplyMethod(int first, int second)
 	{
 		int product = 0;
 		
