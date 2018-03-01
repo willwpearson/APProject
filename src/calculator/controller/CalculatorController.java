@@ -29,7 +29,7 @@ public class CalculatorController
 			int second = 0;
 			
 			first = Integer.parseInt(currentText.substring(0, currentText.indexOf(" ")));
-			second = Integer.parseInt(currentText.substring(currentText.indexOf(" " + 1, currentText.indexOf("+")), currentText.length()));
+			second = Integer.parseInt(currentText.substring(currentText.indexOf(" ", currentText.indexOf("+"))).trim());
 			
 			answer = appCalculator.addMethod(first, second);
 		}
@@ -40,7 +40,7 @@ public class CalculatorController
 			int second = 0;
 			
 			first = Integer.parseInt(currentText.substring(0, currentText.indexOf(" ")));
-			second = Integer.parseInt(currentText.substring(currentText.indexOf("-") + 2, currentText.indexOf("-") + 3));
+			second = Integer.parseInt(currentText.substring(currentText.indexOf(" ", currentText.indexOf("-"))).trim());
 			
 			answer = appCalculator.subtractMethod(first, second);
 		}
@@ -51,7 +51,7 @@ public class CalculatorController
 			int second = 0;
 			
 			first = Integer.parseInt(currentText.substring(0, currentText.indexOf(" ")));
-			second = Integer.parseInt(currentText.substring(currentText.indexOf("*") + 2, currentText.indexOf("*") + 3));
+			second = Integer.parseInt(currentText.substring(currentText.indexOf(" ", currentText.indexOf("*"))).trim());
 			
 			answer = appCalculator.multiplyMethod(first, second);
 		}
@@ -62,7 +62,7 @@ public class CalculatorController
 			int second = 0;
 			
 			first = Integer.parseInt(currentText.substring(0, currentText.indexOf(" ")));
-			second = Integer.parseInt(currentText.substring(currentText.indexOf("÷") + 2, currentText.indexOf("÷") + 3));
+			second = Integer.parseInt(currentText.substring(currentText.indexOf(" ", currentText.indexOf("÷"))).trim());
 			
 			answer = appCalculator.divideMethod(first, second);
 		}
