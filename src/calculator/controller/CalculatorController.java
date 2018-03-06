@@ -69,13 +69,7 @@ public class CalculatorController
 			answer = appCalculator.subtractMethod(first, second);
 		}
 		
-		return answer;
-	}
-	
-	public int calculateMoreOperands(String currentText)
-	{
-		int answer = 0;
-		
+		calcScanner.close();
 		return answer;
 	}
 }

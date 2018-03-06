@@ -269,14 +269,7 @@ public class CalculatorPanel extends JPanel
 			{
 				String currentText = numbersArea.getText();
 				
-				if(currentText.contains("*") && currentText.contains("+") || currentText.contains("*") && currentText.contains("-") || currentText.contains("÷") && currentText.contains("+") || currentText.contains("÷") && currentText.contains("-"))
-				{
-					numbersArea.setText(appController.calculateMoreOperands(currentText) + "");
-				}
-				else
-				{
-					numbersArea.setText(appController.calculateOneOperand(currentText) + "");		
-				}
+				numbersArea.setText(appController.calculateOneOperand(currentText) + "");		
 			}
 		});
 	}
