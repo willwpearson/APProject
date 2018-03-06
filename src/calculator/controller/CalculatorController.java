@@ -2,6 +2,7 @@ package calculator.controller;
 
 import calculator.model.Calculator;
 import calculator.view.CalculatorFrame;
+import java.util.Scanner;
 
 public class CalculatorController
 {
@@ -19,16 +20,39 @@ public class CalculatorController
 		
 	}
 	
-	public int calculateAnswer(String currentText)
+	public int calculateOneOperand(String currentText)
 	{
 		int answer = 0;
+		Scanner calcScanner = new Scanner(currentText);
+		
+		if(currentText.contains("*"))
+		{
+			int first = 0;
+			int second = 0;
+		
+			first = calcScanner.nextInt();
+			second = Integer.parseInt(currentText.substring(currentText.indexOf(" ", currentText.indexOf("*"))).trim());
+			
+			answer = appCalculator.multiplyMethod(first, second);
+		}
+	
+		if(currentText.contains("÷"))
+		{
+			int first = 0;
+			int second = 0;
+			
+			first = calcScanner.nextInt();
+			second = Integer.parseInt(currentText.substring(currentText.indexOf(" ", currentText.indexOf("÷"))).trim());
+			
+			answer = appCalculator.divideMethod(first, second);
+		}
 		
 		if(currentText.contains("+"))
 		{
 			int first = 0;
 			int second = 0;
 			
-			first = Integer.parseInt(currentText.substring(0, currentText.indexOf(" ")));
+			first = calcScanner.nextInt();
 			second = Integer.parseInt(currentText.substring(currentText.indexOf(" ", currentText.indexOf("+"))).trim());
 			
 			answer = appCalculator.addMethod(first, second);
@@ -39,33 +63,18 @@ public class CalculatorController
 			int first = 0;
 			int second = 0;
 			
-			first = Integer.parseInt(currentText.substring(0, currentText.indexOf(" ")));
+			first = calcScanner.nextInt();
 			second = Integer.parseInt(currentText.substring(currentText.indexOf(" ", currentText.indexOf("-"))).trim());
 			
 			answer = appCalculator.subtractMethod(first, second);
 		}
 		
-		if(currentText.contains("*"))
-		{
-			int first = 0;
-			int second = 0;
-			
-			first = Integer.parseInt(currentText.substring(0, currentText.indexOf(" ")));
-			second = Integer.parseInt(currentText.substring(currentText.indexOf(" ", currentText.indexOf("*"))).trim());
-			
-			answer = appCalculator.multiplyMethod(first, second);
-		}
-		
-		if(currentText.contains("÷"))
-		{
-			int first = 0;
-			int second = 0;
-			
-			first = Integer.parseInt(currentText.substring(0, currentText.indexOf(" ")));
-			second = Integer.parseInt(currentText.substring(currentText.indexOf(" ", currentText.indexOf("÷"))).trim());
-			
-			answer = appCalculator.divideMethod(first, second);
-		}
+		return answer;
+	}
+	
+	public int calculateMoreOperands(String currentText)
+	{
+		int answer = 0;
 		
 		return answer;
 	}
