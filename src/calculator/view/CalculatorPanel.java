@@ -23,6 +23,7 @@ public class CalculatorPanel extends JPanel
 	private JButton subtractButton;
 	private JButton multiplyButton;
 	private JButton divideButton;
+	private JButton decimalButton;
 	private JButton equalsButton;
 	private JButton clearButton;
 	private JTextArea numbersArea;
@@ -49,6 +50,7 @@ public class CalculatorPanel extends JPanel
 		subtractButton = new JButton("-");
 		multiplyButton = new JButton("*");
 		divideButton = new JButton("÷");
+		decimalButton = new JButton(".");
 		equalsButton = new JButton("=");
 		clearButton = new JButton("CE");
 		numbersArea = new JTextArea();
@@ -77,6 +79,7 @@ public class CalculatorPanel extends JPanel
 		this.add(subtractButton);
 		this.add(multiplyButton);
 		this.add(divideButton);
+		this.add(decimalButton);
 		this.add(equalsButton);
 		this.add(clearButton);
 		this.add(numbersArea);
@@ -250,6 +253,15 @@ public class CalculatorPanel extends JPanel
 			{
 				String currentText = numbersArea.getText();
 				numbersArea.setText(currentText + " ÷ ");
+			}
+		});
+		
+		decimalButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				String currentText = numbersArea.getText();
+				numbersArea.setText(currentText + ".");
 			}
 		});
 		

@@ -7,36 +7,36 @@ public class Calculator
 		
 	}
 	
-	public int addMethod(int first, int second)
+	public double addMethod(double first, double second)
 	{
-		int sum = 0;
+		double sum = 0;
 		
 		sum = first + second;
 		
 		return sum;
 	}
 	
-	public int subtractMethod(int first, int second)
+	public double subtractMethod(double first, double second)
 	{
-		int difference = 0;
+		double difference = 0;
 		
 		difference = first - second;
 		
 		return difference;
 	}
 	
-	public int multiplyMethod(int first, int second)
+	public double multiplyMethod(double first, double second)
 	{
-		int product = 0;
+		double product = 0;
 		
 		product = first * second;
 		
 		return product;
 	}
 	
-	public int divideMethod(int first, int second)
+	public double divideMethod(double first, double second)
 	{
-		int quotient = 0;
+		double quotient = 0;
 		
 		quotient = first / second;
 		

@@ -20,51 +20,51 @@ public class CalculatorController
 		
 	}
 	
-	public int calculateOneOperand(String currentText)
+	public double calculateOneOperand(String currentText)
 	{
-		int answer = 0;
+		double answer = 0.0;
 		Scanner calcScanner = new Scanner(currentText);
 		
 		if(currentText.contains("*"))
 		{
-			int first = 0;
-			int second = 0;
+			double first = 0.0;
+			double second = 0.0;
 		
-			first = calcScanner.nextInt();
-			second = Integer.parseInt(currentText.substring(currentText.indexOf(" ", currentText.indexOf("*"))).trim());
+			first = calcScanner.nextDouble();
+			second = Double.parseDouble(currentText.substring(currentText.indexOf(" ", currentText.indexOf("*"))).trim());
 			
 			answer = appCalculator.multiplyMethod(first, second);
 		}
 	
 		if(currentText.contains("÷"))
 		{
-			int first = 0;
-			int second = 0;
+			double first = 0.0;
+			double second = 0.0;
 			
-			first = calcScanner.nextInt();
-			second = Integer.parseInt(currentText.substring(currentText.indexOf(" ", currentText.indexOf("÷"))).trim());
+			first = calcScanner.nextDouble();
+			second = Double.parseDouble(currentText.substring(currentText.indexOf(" ", currentText.indexOf("÷"))).trim());
 			
 			answer = appCalculator.divideMethod(first, second);
 		}
 		
 		if(currentText.contains("+"))
 		{
-			int first = 0;
-			int second = 0;
+			double first = 0.0;
+			double second = 0.0;
 			
-			first = calcScanner.nextInt();
-			second = Integer.parseInt(currentText.substring(currentText.indexOf(" ", currentText.indexOf("+"))).trim());
+			first = calcScanner.nextDouble();
+			second = Double.parseDouble(currentText.substring(currentText.indexOf(" ", currentText.indexOf("+"))).trim());
 			
 			answer = appCalculator.addMethod(first, second);
 		}
 		
 		if(currentText.contains("-"))
 		{
-			int first = 0;
-			int second = 0;
+			double first = 0.0;
+			double second = 0.0;
 			
-			first = calcScanner.nextInt();
-			second = Integer.parseInt(currentText.substring(currentText.indexOf(" ", currentText.indexOf("-"))).trim());
+			first = calcScanner.nextDouble();
+			second = Double.parseDouble(currentText.substring(currentText.indexOf(" ", currentText.indexOf("-"))).trim());
 			
 			answer = appCalculator.subtractMethod(first, second);
 		}
