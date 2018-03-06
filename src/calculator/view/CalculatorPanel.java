@@ -123,6 +123,10 @@ public class CalculatorPanel extends JPanel
 		appLayout.putConstraint(SpringLayout.WEST, numbersArea, 10, SpringLayout.WEST, this);
 		appLayout.putConstraint(SpringLayout.SOUTH, numbersArea, 0, SpringLayout.NORTH, clearButton);
 		appLayout.putConstraint(SpringLayout.EAST, numbersArea, 0, SpringLayout.EAST, divideButton);	
+		appLayout.putConstraint(SpringLayout.NORTH, decimalButton, 0, SpringLayout.NORTH, zeroButton);
+		appLayout.putConstraint(SpringLayout.WEST, decimalButton, 0, SpringLayout.WEST, twoButton);
+		appLayout.putConstraint(SpringLayout.SOUTH, decimalButton, 0, SpringLayout.SOUTH, zeroButton);
+		appLayout.putConstraint(SpringLayout.EAST, decimalButton, 0, SpringLayout.EAST, twoButton);
 	}
 	
 	private void setupListeners()
