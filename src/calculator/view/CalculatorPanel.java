@@ -29,6 +29,7 @@ public class CalculatorPanel extends JPanel
 	private JButton gameButton;
 	private JTextArea numbersArea;
 	private SpringLayout appLayout;
+	private boolean gameRunning;
 	
 	public CalculatorPanel(CalculatorController appController)
 	{
@@ -57,6 +58,8 @@ public class CalculatorPanel extends JPanel
 		gameButton = new JButton("Click me??");
 		numbersArea = new JTextArea();
 		numbersArea.setBackground(Color.LIGHT_GRAY);
+		
+		gameRunning = false;
 		
 		setupPanel();
 		setupLayout();
@@ -143,8 +146,16 @@ public class CalculatorPanel extends JPanel
 		{
 			public void actionPerformed(ActionEvent click)
 			{
-				String currentText = numbersArea.getText();
-				numbersArea.setText(currentText + "0");
+				if(gameRunning = true)
+				{
+					numbersArea.setText("Yes");
+					appController.textGameChoice(numbersArea.getText());
+				}
+				else
+				{
+					String currentText = numbersArea.getText();
+					numbersArea.setText(currentText + "0");	
+				}
 			}
 		});
 		
@@ -152,8 +163,16 @@ public class CalculatorPanel extends JPanel
 		{
 			public void actionPerformed(ActionEvent click)
 			{
-				String currentText = numbersArea.getText();
-				numbersArea.setText(currentText + "1");
+				if(gameRunning = true)
+				{
+					numbersArea.setText("No");
+					appController.textGameChoice(numbersArea.getText());
+				}
+				else
+				{
+					String currentText = numbersArea.getText();
+					numbersArea.setText(currentText + "1");	
+				}
 			}
 		});
 		
@@ -301,7 +320,8 @@ public class CalculatorPanel extends JPanel
 		gameButton.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent click)
-			{
+			{	
+				gameRunning = true;
 				numbersArea.setText(appController.textGameFun());
 			}
 		});

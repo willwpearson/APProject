@@ -13,13 +13,25 @@ public class TextGame
 		
 		mainText += "\n" + introduction();
 		
+		
 		return mainText;
 	}
 	
 	public String introduction()
 	{
-		String hello = "Hello?? \n Anyone There?";
+		String hello = "Hello?? \nAnyone There?";
+		hello += "\n" + "I've been stuck here for days.";
+		hello += "\n" + "Can you hear me?";
 		
 		return hello;
+	}
+	
+	public String firstAct()
+	{
+		String worried = "";
+		
+		
+		
+		return worried;
 	}
 }

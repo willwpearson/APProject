@@ -84,4 +84,19 @@ public class CalculatorController
 		
 		return gameText;
 	}
+	
+	public boolean textGameChoice(String response)
+	{
+		boolean yesOrNo = false;
+		
+		if(response.equals("Yes"))
+		{
+			yesOrNo = true;
+			return yesOrNo;
+		}
+		else
+		{
+			return yesOrNo;
+		}
+	}
 }
