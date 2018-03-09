@@ -29,18 +29,4 @@ public class TextGame
 		return worried;
 	}
 	
-	public boolean choices(String choice)
-	{
-		boolean yesOrNo = false;
-		
-		if(choice.equals("Yes"))
-		{
-			yesOrNo = true;
-			return yesOrNo;
-		}
-		else
-		{
-			return yesOrNo;
-		}
-	}
 }

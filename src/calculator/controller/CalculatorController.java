@@ -85,11 +85,22 @@ public class CalculatorController
 		return gameText;
 	}
 	
-	public void textGameChoice(String response)
+	public String textGameChoice(String response)
 	{
+		String main = "";
+		
 		if(response.equals("Yes"))
 		{
-			
+			main += firstAct();
 		}
+		
+		return main;
+	}
+	
+	public String firstAct()
+	{
+		String firstWords = "";
+		
+		return firstWords;
 	}
 }
