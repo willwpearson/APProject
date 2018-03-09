@@ -1,6 +1,7 @@
 package calculator.controller;
 
 import calculator.model.Calculator;
+import calculator.model.TextGame;
 import calculator.view.CalculatorFrame;
 import java.util.Scanner;
 
@@ -8,11 +9,13 @@ public class CalculatorController
 {
 	private CalculatorFrame appFrame;
 	private Calculator appCalculator;
+	private TextGame appGame;
 	
 	public CalculatorController()
 	{
 		appFrame = new CalculatorFrame(this);
 		appCalculator = new Calculator();
+		appGame = new TextGame();
 	}
 	
 	public void start()
@@ -71,5 +74,10 @@ public class CalculatorController
 		
 		calcScanner.close();
 		return answer;
+	}
+	
+	public void textGameFun()
+	{
+		
 	}
 }
