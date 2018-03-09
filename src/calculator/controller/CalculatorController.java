@@ -80,23 +80,16 @@ public class CalculatorController
 	{
 		String gameText = "";
 		
-		gameText = appGame.mainGame();
+		gameText = appGame.introduction();
 		
 		return gameText;
 	}
 	
-	public boolean textGameChoice(String response)
+	public void textGameChoice(String response)
 	{
-		boolean yesOrNo = false;
-		
 		if(response.equals("Yes"))
 		{
-			yesOrNo = true;
-			return yesOrNo;
-		}
-		else
-		{
-			return yesOrNo;
+			
 		}
 	}
 }

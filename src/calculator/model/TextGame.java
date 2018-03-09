@@ -1,20 +1,14 @@
 package calculator.model;
 
+import calculator.controller.CalculatorController;
+
 public class TextGame
 {
+	private CalculatorController appController;
+	
 	public TextGame()
 	{
 		
-	}
-	
-	public String mainGame()
-	{
-		String mainText = "";
-		
-		mainText += "\n" + introduction();
-		
-		
-		return mainText;
 	}
 	
 	public String introduction()
@@ -33,5 +27,20 @@ public class TextGame
 		
 		
 		return worried;
+	}
+	
+	public boolean choices(String choice)
+	{
+		boolean yesOrNo = false;
+		
+		if(choice.equals("Yes"))
+		{
+			yesOrNo = true;
+			return yesOrNo;
+		}
+		else
+		{
+			return yesOrNo;
+		}
 	}
 }
