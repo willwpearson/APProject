@@ -26,6 +26,7 @@ public class CalculatorPanel extends JPanel
 	private JButton decimalButton;
 	private JButton equalsButton;
 	private JButton clearButton;
+	private JButton gameButton;
 	private JTextArea numbersArea;
 	private SpringLayout appLayout;
 	
@@ -53,6 +54,7 @@ public class CalculatorPanel extends JPanel
 		decimalButton = new JButton(".");
 		equalsButton = new JButton("=");
 		clearButton = new JButton("CE");
+		gameButton = new JButton("Click me??");
 		numbersArea = new JTextArea();
 		numbersArea.setBackground(Color.LIGHT_GRAY);
 		
@@ -82,6 +84,7 @@ public class CalculatorPanel extends JPanel
 		this.add(decimalButton);
 		this.add(equalsButton);
 		this.add(clearButton);
+		this.add(gameButton);
 		this.add(numbersArea);
 	}
 	
@@ -127,6 +130,10 @@ public class CalculatorPanel extends JPanel
 		appLayout.putConstraint(SpringLayout.WEST, decimalButton, 0, SpringLayout.WEST, twoButton);
 		appLayout.putConstraint(SpringLayout.SOUTH, decimalButton, 0, SpringLayout.SOUTH, zeroButton);
 		appLayout.putConstraint(SpringLayout.EAST, decimalButton, 0, SpringLayout.EAST, twoButton);
+		appLayout.putConstraint(SpringLayout.NORTH, gameButton, 0, SpringLayout.SOUTH, numbersArea);
+		appLayout.putConstraint(SpringLayout.WEST, gameButton, 0, SpringLayout.WEST, sevenButton);
+		appLayout.putConstraint(SpringLayout.SOUTH, gameButton, 0, SpringLayout.NORTH, sevenButton);
+		appLayout.putConstraint(SpringLayout.EAST, gameButton, 0, SpringLayout.EAST, eightButton);
 	}
 	
 	private void setupListeners()
@@ -286,6 +293,16 @@ public class CalculatorPanel extends JPanel
 				String currentText = numbersArea.getText();
 				
 				numbersArea.setText(appController.calculateOneOperand(currentText) + "");		
+			}
+		});
+		
+		//Game Listener
+		
+		gameButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				numbersArea.setText(appController.textGameFun());
 			}
 		});
 	}

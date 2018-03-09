@@ -76,8 +76,12 @@ public class CalculatorController
 		return answer;
 	}
 	
-	public void textGameFun()
+	public String textGameFun()
 	{
+		String gameText = "";
 		
+		gameText = appGame.mainGame();
+		
+		return gameText;
 	}
 }
