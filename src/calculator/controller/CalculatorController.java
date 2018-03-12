@@ -25,6 +25,8 @@ public class CalculatorController
 		double answer = 0.0;
 		Scanner calcScanner = new Scanner(currentText);
 		
+		
+		//startComplexity
 		if(currentText.contains("*"))
 		{
 			double first = 0.0;
@@ -35,8 +37,8 @@ public class CalculatorController
 			
 			answer = appCalculator.multiplyMethod(first, second);
 		}
-	
-		if(currentText.contains("÷"))
+		//endComplexity
+		else if(currentText.contains("÷"))
 		{
 			double first = 0.0;
 			double second = 0.0;
@@ -46,8 +48,7 @@ public class CalculatorController
 			
 			answer = appCalculator.divideMethod(first, second);
 		}
-		
-		if(currentText.contains("+"))
+		else if(currentText.contains("+"))
 		{
 			double first = 0.0;
 			double second = 0.0;
@@ -57,8 +58,7 @@ public class CalculatorController
 			
 			answer = appCalculator.addMethod(first, second);
 		}
-		
-		if(currentText.contains("-"))
+		else if(currentText.contains("-"))
 		{
 			double first = 0.0;
 			double second = 0.0;
