@@ -25,7 +25,6 @@ public class CalculatorController
 		double answer = 0.0;
 		Scanner calcScanner = new Scanner(currentText);
 		
-		
 		//startComplexity
 		if(currentText.contains("*"))
 		{
@@ -81,8 +80,8 @@ public class CalculatorController
 		while(calcScanner.hasNextDouble())
 		{
 			double first = calcScanner.nextDouble();
+			String operand = calcScanner.next();
 			double second = calcScanner.nextDouble();
-			String operand = "";
 			
 			if(operand == "*")
 			{
@@ -111,11 +110,11 @@ public class CalculatorController
 		String answer = "";
 		Scanner calcScanner = new Scanner(currentText);
 		
-		if(calcScanner.hasNextDouble())
+		if(calcScanner.hasNextDouble() || calcScanner.hasNextInt())
 		{
-			if(calcScanner.hasNextDouble())
+			if(calcScanner.hasNextDouble() || calcScanner.hasNextInt())
 			{
-				if(!calcScanner.hasNextDouble())
+				if(!calcScanner.hasNextDouble() && !calcScanner.hasNextInt())
 				{
 					answer = calculateOneOperand(currentText) + "";
 				}
