@@ -76,7 +76,33 @@ public class CalculatorController
 	public double calculateMultipleOperands(String currentText)
 	{
 		double answer = 0.0;
+		Scanner calcScanner = new Scanner(currentText);
 		
+		while(calcScanner.hasNextDouble())
+		{
+			double first = calcScanner.nextDouble();
+			double second = calcScanner.nextDouble();
+			String operand = "";
+			
+			if(operand == "*")
+			{
+				answer += appCalculator.multiplyMethod(first, second);
+			}
+			else if(operand == "÷")
+			{
+				answer += appCalculator.divideMethod(first, second);
+			}
+			else if(operand == "+")
+			{
+				answer += appCalculator.addMethod(first, second);
+			}
+			else if(operand == "-")
+			{
+				answer += appCalculator.subtractMethod(first, second);
+			}
+		}
+		
+		calcScanner.close();
 		return answer;
 	}
 	
@@ -84,28 +110,23 @@ public class CalculatorController
 	{
 		String answer = "";
 		Scanner calcScanner = new Scanner(currentText);
-		double first = 0.0;
-		double second = 0.0;
 		
 		if(calcScanner.hasNextDouble())
 		{
-			first = calcScanner.nextDouble();
-		}
-		if(calcScanner.hasNextDouble())
-		{
-			second = calcScanner.nextDouble();
-		}
-		if(!calcScanner.hasNextDouble())
-		{
-			answer = calculateOneOperand(currentText) + "";
-		}
-		else
-		{
-			answer = calculateMultipleOperands(currentText) + "";
+			if(calcScanner.hasNextDouble())
+			{
+				if(!calcScanner.hasNextDouble())
+				{
+					answer = calculateOneOperand(currentText) + "";
+				}
+				else
+				{
+					answer = calculateMultipleOperands(currentText) + "";
+				}
+			}
 		}
 		
 		calcScanner.close();
 		return answer;
 	}
-
 }
