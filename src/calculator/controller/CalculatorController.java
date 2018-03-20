@@ -3,16 +3,21 @@ package calculator.controller;
 import calculator.model.Calculator;
 import calculator.view.CalculatorFrame;
 import java.util.Scanner;
+import java.util.List;
+import java.util.ArrayList;
 
 public class CalculatorController
 {
 	private CalculatorFrame appFrame;
 	private Calculator appCalculator;
+	private List<Double> numbers;
+	private List<String> operands;
 	
 	public CalculatorController()
 	{
 		appFrame = new CalculatorFrame(this);
 		appCalculator = new Calculator();
+		numbers = new ArrayList<Double>();
 	}
 	
 	public void start()
@@ -41,11 +46,11 @@ public class CalculatorController
 		{
 			double first = 0.0;
 			double second = 0.0;
-			first = calcScanner.nextDouble();
-			second = Double.parseDouble(currentText.substring(currentText.indexOf(" ", currentText.indexOf("÷"))).trim());
 			//startAbstraction
-			answer = appCalculator.divideMethod(first, second);
+			first = calcScanner.nextDouble();
 			//endAbstraction
+			second = Double.parseDouble(currentText.substring(currentText.indexOf(" ", currentText.indexOf("÷"))).trim());
+			answer = appCalculator.divideMethod(first, second);
 		}
 		else if(currentText.contains("+"))
 		{
@@ -72,36 +77,28 @@ public class CalculatorController
 		return answer;
 	}
 	
-	public double calculateMultipleOperands(String currentText)
+	public double calculateMultipleOperands(List<Double> numbers)
 	{
 		double answer = 0.0;
-		Scanner calcScanner = new Scanner(currentText);
+		List<Double> removed = new ArrayList<Double>();
 		
-		while(calcScanner.hasNextDouble())
+		while(!numbers.isEmpty())
 		{
-			double first = calcScanner.nextDouble();
-			String operand = calcScanner.next();
-			double second = calcScanner.nextDouble();
-			
-			if(operand == "*")
+			for(int i = 0; i < operands.size(); i++)
 			{
-				answer += appCalculator.multiplyMethod(first, second);
-			}
-			else if(operand == "÷")
-			{
-				answer += appCalculator.divideMethod(first, second);
-			}
-			else if(operand == "+")
-			{
-				answer += appCalculator.addMethod(first, second);
-			}
-			else if(operand == "-")
-			{
-				answer += appCalculator.subtractMethod(first, second);
+				if(operands.get(i) == "*")
+				{
+					appCalculator.multiplyMethod(numbers.get(i), numbers.get(i + 1));
+					numbers.remove(i);
+					numbers.remove(i + 1);
+					numbers.add(i, appCalculator.multiplyMethod(numbers.get(i), numbers.get(i + 1)));
+				}
+				else if(operands.get(i) == "÷")
+				{
+					
+				}
 			}
 		}
-		
-		calcScanner.close();
 		return answer;
 	}
 	
@@ -109,22 +106,27 @@ public class CalculatorController
 	{
 		String answer = "";
 		Scanner calcScanner = new Scanner(currentText);
+		numbers.clear();
+		operands.clear();
 		
-		if(calcScanner.hasNextDouble() || calcScanner.hasNextInt())
+		while(calcScanner.hasNextDouble())
 		{
-			if(calcScanner.hasNextDouble() || calcScanner.hasNextInt())
-			{
-				if(!calcScanner.hasNextDouble() && !calcScanner.hasNextInt())
-				{
-					answer = calculateOneOperand(currentText) + "";
-				}
-				else
-				{
-					answer = calculateMultipleOperands(currentText) + "";
-				}
-			}
+			numbers.add(calcScanner.nextDouble());
+		}
+		while(calcScanner.hasNext())
+		{
+			operands.add(calcScanner.next());
 		}
 		
+		if(numbers.size() > 2)
+		{
+			answer = calculateMultipleOperands(numbers) + "";
+		}
+		else
+		{
+			answer = calculateOneOperand(currentText) + "";
+		}
+
 		calcScanner.close();
 		return answer;
 	}

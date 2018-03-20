@@ -9,7 +9,7 @@ public class Calculator
 	
 	public double addMethod(double first, double second)
 	{
-		double sum = 0;
+		double sum = 0.0;
 		
 		sum = first + second;
 		
@@ -18,7 +18,7 @@ public class Calculator
 	
 	public double subtractMethod(double first, double second)
 	{
-		double difference = 0;
+		double difference = 0.0;
 		
 		difference = first - second;
 		
@@ -27,7 +27,7 @@ public class Calculator
 	
 	public double multiplyMethod(double first, double second)
 	{
-		double product = 0;
+		double product = 0.0;
 		
 		product = first * second;
 		
@@ -36,7 +36,7 @@ public class Calculator
 	
 	public double divideMethod(double first, double second)
 	{
-		double quotient = 0;
+		double quotient = 0.0;
 		
 		quotient = first / second;
 		
