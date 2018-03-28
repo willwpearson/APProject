@@ -26,83 +26,7 @@ public class CalculatorController
 		
 	}
 	
-	public double calculateOneOperand(String currentText)
-	{
-		double answer = 0.0;
-		
-		if(currentText.contains("*"))
-		{	
-			answer = (double) (appCalculator.multiplyMethod(numbers.get(0), numbers.get(1)));
-		}
-		else if(currentText.contains("÷"))
-		{
-			answer = (double) (appCalculator.divideMethod(numbers.get(0), numbers.get(1)));
-		}
-		else if(currentText.contains("+"))
-		{
-			answer = (double) (appCalculator.addMethod(numbers.get(0), numbers.get(1)));
-		}
-		else if(currentText.contains("-"))
-		{
-			answer = (double) (appCalculator.subtractMethod(numbers.get(0), numbers.get(1)));
-		}
-		
-		return answer;
-	}
-	
-	public double calculateMultipleOperands(List<Double> numbers)
-	{
-		double answer = 0.0;
-		
-		while(!numbers.isEmpty())
-		{
-			for(int i = 0; i < operands.size(); i++)
-			{
-				if(operands.get(i).equals("*"))
-				{
-					double temp1 = numbers.get(i);
-					double temp2 = numbers.get(i + 1);
-					numbers.remove(i);
-					numbers.remove(i + 1);
-					numbers.add(i, appCalculator.multiplyMethod(temp1, temp2));
-				}
-				else if(operands.get(i).equals("÷"))
-				{
-					double temp1 = numbers.get(i);
-					double temp2 = numbers.get(i + 1);
-					numbers.remove(i);
-					numbers.remove(i + 1);
-					numbers.add(i, appCalculator.divideMethod(temp1, temp2));
-				}
-			}
-			for(int i = 0; i < operands.size(); i++)
-			{
-				if(operands.get(i).equals("+"))
-				{
-					double temp1 = numbers.get(i);
-					double temp2 = numbers.get(i + 1);
-					numbers.remove(i);
-					numbers.remove(i + 1);
-					numbers.add(i, appCalculator.addMethod(temp1, temp2));
-				}
-				else if(operands.get(i).equals("-"))
-				{
-					double temp1 = numbers.get(i);
-					double temp2 = numbers.get(i + 1);
-					numbers.remove(i);
-					numbers.remove(i + 1);
-					numbers.add(i, appCalculator.subtractMethod(temp1, temp2));
-				}
-			}
-			if(numbers.size() == 1)
-			{
-				answer = numbers.get(0);
-			}
-		}
-		return answer;
-	}
-	
-	public String getAnswer(String currentText)
+	public String calculateAnswer(String currentText)
 	{
 		String answer = "";
 		Scanner calcScanner = new Scanner(currentText);
@@ -121,11 +45,11 @@ public class CalculatorController
 		
 		if(operands.size() >= 2)
 		{
-			answer = calculateMultipleOperands(numbers) + "";
+			answer = appCalculator.calculateMultipleOperands(numbers, operands) + "";
 		}
 		else if(operands.size() == 1)
 		{
-			answer = calculateOneOperand(currentText) + "";
+			answer = appCalculator.calculateOneOperand(currentText, numbers) + "";
 		}
 
 		return answer;
