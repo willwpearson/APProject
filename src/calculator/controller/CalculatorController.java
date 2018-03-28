@@ -36,10 +36,11 @@ public class CalculatorController
 		while(calcScanner.hasNextDouble())
 		{
 			numbers.add(calcScanner.nextDouble());
-			while(calcScanner.hasNext())
+			if(calcScanner.hasNext())
 			{
 				operands.add(calcScanner.next());
 			}
+			
 		}
 		calcScanner.close();
 		
@@ -47,7 +48,7 @@ public class CalculatorController
 		{
 			answer = appCalculator.calculateMultipleOperands(numbers, operands) + "";
 		}
-		else if(operands.size() == 1)
+		else
 		{
 			answer = appCalculator.calculateOneOperand(currentText, numbers) + "";
 		}

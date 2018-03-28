@@ -1,6 +1,7 @@
 package calculator.model;
 
 import java.util.List;
+import java.util.ArrayList;
 
 public class Calculator
 {	
@@ -72,6 +73,7 @@ public class Calculator
 	public double calculateMultipleOperands(List<Double> numbers, List<String> operands)
 	{
 		double answer = 0.0;
+		List<Double> tempList = new ArrayList<Double>(numbers);
 		
 		while(!numbers.isEmpty())
 		{
@@ -79,18 +81,14 @@ public class Calculator
 			{
 				if(operands.get(i).equals("*"))
 				{
-					double temp1 = numbers.get(i);
-					double temp2 = numbers.get(i + 1);
-					numbers.remove(i);
-					numbers.remove(i + 1);
+					double temp1 = numbers.remove(i);
+					double temp2 = numbers.remove(i + 1);
 					numbers.add(i, multiplyMethod(temp1, temp2));
 				}
 				else if(operands.get(i).equals("÷"))
 				{
-					double temp1 = numbers.get(i);
-					double temp2 = numbers.get(i + 1);
-					numbers.remove(i);
-					numbers.remove(i + 1);
+					double temp1 = numbers.remove(i);
+					double temp2 = numbers.remove(i + 1);
 					numbers.add(i, divideMethod(temp1, temp2));
 				}
 			}
@@ -98,18 +96,14 @@ public class Calculator
 			{
 				if(operands.get(i).equals("+"))
 				{
-					double temp1 = numbers.get(i);
-					double temp2 = numbers.get(i + 1);
-					numbers.remove(i);
-					numbers.remove(i + 1);
+					double temp1 = numbers.remove(i);
+					double temp2 = numbers.remove(i + 1);
 					numbers.add(i, addMethod(temp1, temp2));
 				}
 				else if(operands.get(i).equals("-"))
 				{
-					double temp1 = numbers.get(i);
-					double temp2 = numbers.get(i + 1);
-					numbers.remove(i);
-					numbers.remove(i + 1);
+					double temp1 = numbers.remove(i);
+					double temp2 = numbers.remove(i + 1);
 					numbers.add(i, subtractMethod(temp1, temp2));
 				}
 			}
