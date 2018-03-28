@@ -58,7 +58,7 @@ public class CalculatorController
 		{
 			for(int i = 0; i < operands.size(); i++)
 			{
-				if(operands.get(i) == "*")
+				if(operands.get(i).equals("*"))
 				{
 					double temp1 = numbers.get(i);
 					double temp2 = numbers.get(i + 1);
@@ -66,7 +66,7 @@ public class CalculatorController
 					numbers.remove(i + 1);
 					numbers.add(i, appCalculator.multiplyMethod(temp1, temp2));
 				}
-				else if(operands.get(i) == "÷")
+				else if(operands.get(i).equals("÷"))
 				{
 					double temp1 = numbers.get(i);
 					double temp2 = numbers.get(i + 1);
@@ -77,7 +77,7 @@ public class CalculatorController
 			}
 			for(int i = 0; i < operands.size(); i++)
 			{
-				if(operands.get(i) == "+")
+				if(operands.get(i).equals("+"))
 				{
 					double temp1 = numbers.get(i);
 					double temp2 = numbers.get(i + 1);
@@ -85,7 +85,7 @@ public class CalculatorController
 					numbers.remove(i + 1);
 					numbers.add(i, appCalculator.addMethod(temp1, temp2));
 				}
-				else if(operands.get(i) == "-")
+				else if(operands.get(i).equals("-"))
 				{
 					double temp1 = numbers.get(i);
 					double temp2 = numbers.get(i + 1);
@@ -97,7 +97,6 @@ public class CalculatorController
 			if(numbers.size() == 1)
 			{
 				answer = numbers.get(0);
-				numbers.remove(0);
 			}
 		}
 		return answer;
@@ -110,21 +109,13 @@ public class CalculatorController
 		numbers.clear();
 		operands.clear();
 		
-		while(calcScanner.hasNextDouble() || calcScanner.hasNextInt())
+		while(calcScanner.hasNextDouble())
 		{
-			if(calcScanner.hasNextDouble())
+			numbers.add(calcScanner.nextDouble());
+			while(calcScanner.hasNext())
 			{
-				numbers.add(calcScanner.nextDouble());
+				operands.add(calcScanner.next());
 			}
-			else if(calcScanner.hasNextInt())
-			{
-				double number = (double)(calcScanner.nextInt());
-				numbers.add(number);
-			}
-		}
-		while(calcScanner.hasNext())
-		{
-			operands.add(calcScanner.next());
 		}
 		calcScanner.close();
 		
@@ -132,7 +123,7 @@ public class CalculatorController
 		{
 			answer = calculateMultipleOperands(numbers) + "";
 		}
-		else
+		else if(operands.size() == 1)
 		{
 			answer = calculateOneOperand(currentText) + "";
 		}

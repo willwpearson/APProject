@@ -285,7 +285,6 @@ public class CalculatorPanel extends JPanel
 			{
 				String currentText = numbersArea.getText();
 				
-				
 				numbersArea.setText(appController.getAnswer(currentText) + "");		
 			}
 		});
