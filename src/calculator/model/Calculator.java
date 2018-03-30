@@ -73,9 +73,8 @@ public class Calculator
 	public double calculateMultipleOperands(List<Double> numbers, List<String> operands)
 	{
 		double answer = 0.0;
-		List<Double> tempList = new ArrayList<Double>(numbers);
 		
-		while(!tempList.isEmpty())
+		while(!operands.isEmpty())
 		{
 			for(int i = 0; i < operands.size(); i++)
 			{
@@ -83,23 +82,25 @@ public class Calculator
 				{
 					double temp1 = numbers.get(i);
 					double temp2 = numbers.get(i + 1);
-					tempList.remove(i);
-					if(tempList.size() != 2)
+					numbers.remove(i);
+					numbers.add(i, multiplyMethod(temp1, temp2));
+					if(numbers.size() != 1)
 					{
-						tempList.remove(i + 1);
+						numbers.remove(i + 1);
 					}
-					tempList.add(i, multiplyMethod(temp1, temp2));
+					operands.remove(i);
 				}
 				else if(operands.get(i).equals("÷"))
 				{
 					double temp1 = numbers.get(i);
 					double temp2 = numbers.get(i + 1);
-					tempList.remove(i);
-					if(tempList.size() != 2)
+					numbers.remove(i);
+					numbers.add(i, divideMethod(temp1, temp2));
+					if(numbers.size() != 1)
 					{
-						tempList.remove(i + 1);
+						numbers.remove(i + 1);
 					}
-					tempList.add(i, divideMethod(temp1, temp2));
+					operands.remove(i);
 				}
 			}
 			for(int i = 0; i < operands.size(); i++)
@@ -108,29 +109,31 @@ public class Calculator
 				{
 					double temp1 = numbers.get(i);
 					double temp2 = numbers.get(i + 1);
-					tempList.remove(i);
-					if(tempList.size() != 2)
+					numbers.remove(i);
+					numbers.add(i, addMethod(temp1, temp2));
+					if(numbers.size() != 1)
 					{
-						tempList.remove(i + 1);
+						numbers.remove(i + 1);
 					}
-					tempList.add(i, addMethod(temp1, temp2));
+					operands.remove(i);
 				}
 				else if(operands.get(i).equals("-"))
 				{
 					double temp1 = numbers.get(i);
 					double temp2 = numbers.get(i + 1);
-					tempList.remove(i);
-					if(tempList.size() != 2)
+					numbers.remove(i);
+					numbers.add(i, subtractMethod(temp1, temp2));
+					if(numbers.size() != 1)
 					{
-						tempList.remove(i + 1);
+						numbers.remove(i + 1);
 					}
-					tempList.add(i, subtractMethod(temp1, temp2));
+					operands.remove(i);
 				}
 			}
-			if(tempList.size() == 1)
+			if(numbers.size() == 1)
 			{
-				answer = tempList.get(0);
-				tempList.clear();
+				answer = numbers.get(0);
+				numbers.clear();
 			}
 		}
 		return answer;
