@@ -33,9 +33,16 @@ public class CalculatorController
 		numbers.clear();
 		operands.clear();
 		
-		while(calcScanner.hasNextDouble())
+		while(calcScanner.hasNextDouble() || calcScanner.hasNextInt())
 		{
-			numbers.add(calcScanner.nextDouble());
+			if(calcScanner.hasNextInt())
+			{
+				numbers.add((double)(calcScanner.nextInt()));
+			}
+			else if(calcScanner.hasNextDouble())
+			{
+				numbers.add(calcScanner.nextDouble());
+			}
 			if(calcScanner.hasNext())
 			{
 				operands.add(calcScanner.next());
