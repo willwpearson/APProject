@@ -103,7 +103,7 @@ public class CalculatorPanel extends JPanel
 		this.add(equalsButton);
 		this.add(clearButton);
 		this.add(numbersArea);
-		this.add(answersArea);
+		this.add(calculatorScroll);
 	}
 	
 	private void setupLayout()
@@ -152,6 +152,9 @@ public class CalculatorPanel extends JPanel
 		appLayout.putConstraint(SpringLayout.WEST, answersArea, 25, SpringLayout.EAST, numbersArea);
 		appLayout.putConstraint(SpringLayout.SOUTH, answersArea, -25, SpringLayout.SOUTH, equalsButton);
 		appLayout.putConstraint(SpringLayout.EAST, answersArea, -25, SpringLayout.EAST, this);
+		appLayout.putConstraint(SpringLayout.NORTH, calculatorScroll, 0, SpringLayout.NORTH, numbersArea);
+		appLayout.putConstraint(SpringLayout.WEST, calculatorScroll, 25, SpringLayout.EAST, numbersArea);
+		appLayout.putConstraint(SpringLayout.SOUTH, calculatorScroll, -25, SpringLayout.SOUTH, equalsButton);
 	}
 	
 	private void setupListeners()
