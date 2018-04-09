@@ -6,9 +6,13 @@ import java.awt.Color;
 import javax.swing.*;
 import java.awt.event.*;
 
+import java.util.List;
+import java.util.ArrayList;
+
 public class CalculatorPanel extends JPanel
 {
 	private CalculatorController appController;
+	private List<Double> answerList;
 	private JButton zeroButton;
 	private JButton oneButton;
 	private JButton twoButton;
@@ -27,6 +31,7 @@ public class CalculatorPanel extends JPanel
 	private JButton equalsButton;
 	private JButton clearButton;
 	private JTextArea numbersArea;
+	private JTextArea answersArea;
 	private SpringLayout appLayout;
 	private boolean hasAnswered;
 	
@@ -34,6 +39,7 @@ public class CalculatorPanel extends JPanel
 	{
 		super();
 		this.appController = appController;
+		answerList = new ArrayList<Double>();
 		appLayout = new SpringLayout();
 		
 		//GUI data members
@@ -55,6 +61,8 @@ public class CalculatorPanel extends JPanel
 		equalsButton = new JButton("=");
 		clearButton = new JButton("CE");
 		numbersArea = new JTextArea();
+		answersArea = new JTextArea();
+		answersArea.setBackground(Color.LIGHT_GRAY);
 		numbersArea.setBackground(Color.LIGHT_GRAY);
 		
 		setupPanel();
@@ -84,6 +92,7 @@ public class CalculatorPanel extends JPanel
 		this.add(equalsButton);
 		this.add(clearButton);
 		this.add(numbersArea);
+		this.add(answersArea);
 	}
 	
 	private void setupLayout()
@@ -128,6 +137,10 @@ public class CalculatorPanel extends JPanel
 		appLayout.putConstraint(SpringLayout.WEST, decimalButton, 0, SpringLayout.WEST, twoButton);
 		appLayout.putConstraint(SpringLayout.SOUTH, decimalButton, 0, SpringLayout.SOUTH, zeroButton);
 		appLayout.putConstraint(SpringLayout.EAST, decimalButton, 0, SpringLayout.EAST, twoButton);
+		appLayout.putConstraint(SpringLayout.NORTH, answersArea, 0, SpringLayout.NORTH, numbersArea);
+		appLayout.putConstraint(SpringLayout.WEST, answersArea, 25, SpringLayout.EAST, numbersArea);
+		appLayout.putConstraint(SpringLayout.SOUTH, answersArea, -25, SpringLayout.SOUTH, equalsButton);
+		appLayout.putConstraint(SpringLayout.EAST, answersArea, -25, SpringLayout.EAST, this);
 	}
 	
 	private void setupListeners()
@@ -336,7 +349,9 @@ public class CalculatorPanel extends JPanel
 			{
 				String currentText = numbersArea.getText();
 				hasAnswered = true;
-				numbersArea.setText(appController.calculateAnswer(currentText) + "");
+				numbersArea.setText(appController.calculateAnswer(currentText));
+				answerList.add(Double.parseDouble(appController.calculateAnswer(currentText)));
+				answersArea.setText(answerList.toString());
 			}
 		});
 	}
