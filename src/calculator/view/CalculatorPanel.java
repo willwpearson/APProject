@@ -1,6 +1,5 @@
 package calculator.view;
 
-import javax.swing.JPanel;
 import calculator.controller.CalculatorController;
 import java.awt.Color;
 import javax.swing.*;
@@ -32,6 +31,7 @@ public class CalculatorPanel extends JPanel
 	private JButton clearButton;
 	private JTextArea numbersArea;
 	private JTextArea answersArea;
+	private JScrollPane calculatorScroll;
 	private SpringLayout appLayout;
 	private boolean hasAnswered;
 	
@@ -62,12 +62,23 @@ public class CalculatorPanel extends JPanel
 		clearButton = new JButton("CE");
 		numbersArea = new JTextArea();
 		answersArea = new JTextArea();
+		calculatorScroll = new JScrollPane();
 		answersArea.setBackground(Color.LIGHT_GRAY);
 		numbersArea.setBackground(Color.LIGHT_GRAY);
 		
+		setupScrollPane();
 		setupPanel();
 		setupLayout();
 		setupListeners();
+	}
+	
+	private void setupScrollPane()
+	{
+		calculatorScroll.setViewportView(answersArea);
+		calculatorScroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+		calculatorScroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+		answersArea.setLineWrap(true);
+		answersArea.setWrapStyleWord(true);
 	}
 	
 	private void setupPanel()
