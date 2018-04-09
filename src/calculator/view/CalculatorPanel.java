@@ -30,7 +30,9 @@ public class CalculatorPanel extends JPanel
 	private JButton equalsButton;
 	private JButton clearButton;
 	private JTextArea numbersArea;
+	private JLabel numbersAreaLabel;
 	private JTextArea answersArea;
+	private JLabel answersAreaLabel;
 	private JScrollPane calculatorScroll;
 	private SpringLayout appLayout;
 	private boolean hasAnswered;
@@ -61,7 +63,11 @@ public class CalculatorPanel extends JPanel
 		equalsButton = new JButton("=");
 		clearButton = new JButton("CE");
 		numbersArea = new JTextArea();
+		numbersAreaLabel = new JLabel("Calculate:");
+		numbersAreaLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		answersArea = new JTextArea();
+		answersAreaLabel = new JLabel("Answers:");
+		answersAreaLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		calculatorScroll = new JScrollPane();
 		answersArea.setBackground(Color.LIGHT_GRAY);
 		numbersArea.setBackground(Color.LIGHT_GRAY);
@@ -103,7 +109,9 @@ public class CalculatorPanel extends JPanel
 		this.add(equalsButton);
 		this.add(clearButton);
 		this.add(numbersArea);
+		this.add(numbersAreaLabel);
 		this.add(calculatorScroll);
+		this.add(answersAreaLabel);
 	}
 	
 	private void setupLayout()
@@ -140,7 +148,6 @@ public class CalculatorPanel extends JPanel
 		appLayout.putConstraint(SpringLayout.SOUTH, divideButton, 0, SpringLayout.NORTH, multiplyButton);
 		appLayout.putConstraint(SpringLayout.SOUTH, multiplyButton, 0, SpringLayout.NORTH, subtractButton);
 		appLayout.putConstraint(SpringLayout.SOUTH, subtractButton, 0, SpringLayout.NORTH, addButton);
-		appLayout.putConstraint(SpringLayout.NORTH, numbersArea, 10, SpringLayout.NORTH, this);
 		appLayout.putConstraint(SpringLayout.WEST, numbersArea, 10, SpringLayout.WEST, this);
 		appLayout.putConstraint(SpringLayout.SOUTH, numbersArea, 0, SpringLayout.NORTH, clearButton);
 		appLayout.putConstraint(SpringLayout.EAST, numbersArea, 0, SpringLayout.EAST, divideButton);	
@@ -155,6 +162,14 @@ public class CalculatorPanel extends JPanel
 		appLayout.putConstraint(SpringLayout.NORTH, calculatorScroll, 0, SpringLayout.NORTH, numbersArea);
 		appLayout.putConstraint(SpringLayout.WEST, calculatorScroll, 25, SpringLayout.EAST, numbersArea);
 		appLayout.putConstraint(SpringLayout.SOUTH, calculatorScroll, -25, SpringLayout.SOUTH, equalsButton);
+		appLayout.putConstraint(SpringLayout.NORTH, numbersAreaLabel, 10, SpringLayout.NORTH, this);
+		appLayout.putConstraint(SpringLayout.WEST, numbersAreaLabel, 0, SpringLayout.WEST, numbersArea);
+		appLayout.putConstraint(SpringLayout.EAST, numbersAreaLabel, 0, SpringLayout.EAST, numbersArea);
+		appLayout.putConstraint(SpringLayout.WEST, answersAreaLabel, 0, SpringLayout.WEST, calculatorScroll);
+		appLayout.putConstraint(SpringLayout.EAST, answersAreaLabel, 0, SpringLayout.EAST, calculatorScroll);
+		appLayout.putConstraint(SpringLayout.NORTH, answersAreaLabel, 0, SpringLayout.NORTH, numbersAreaLabel);
+		appLayout.putConstraint(SpringLayout.SOUTH, answersAreaLabel, 0, SpringLayout.SOUTH, numbersAreaLabel);
+		appLayout.putConstraint(SpringLayout.NORTH, numbersArea, 25, SpringLayout.NORTH, this);
 	}
 	
 	private void setupListeners()
