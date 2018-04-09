@@ -28,6 +28,7 @@ public class CalculatorPanel extends JPanel
 	private JButton clearButton;
 	private JTextArea numbersArea;
 	private SpringLayout appLayout;
+	private boolean hasAnswered;
 	
 	public CalculatorPanel(CalculatorController appController)
 	{
@@ -136,6 +137,11 @@ public class CalculatorPanel extends JPanel
 		{
 			public void actionPerformed(ActionEvent click)
 			{
+				if(hasAnswered == true)
+				{
+					numbersArea.setText("");
+					hasAnswered = false;
+				}
 				String currentText = numbersArea.getText();
 				numbersArea.setText(currentText + "0");	
 			}
@@ -145,6 +151,11 @@ public class CalculatorPanel extends JPanel
 		{
 			public void actionPerformed(ActionEvent click)
 			{
+				if(hasAnswered == true)
+				{
+					numbersArea.setText("");
+					hasAnswered = false;
+				}
 				String currentText = numbersArea.getText();
 				numbersArea.setText(currentText + "1");	
 			}
@@ -154,6 +165,11 @@ public class CalculatorPanel extends JPanel
 		{
 			public void actionPerformed(ActionEvent click)
 			{
+				if(hasAnswered == true)
+				{
+					numbersArea.setText("");
+					hasAnswered = false;
+				}
 				String currentText = numbersArea.getText();
 				numbersArea.setText(currentText + "2");
 			}
@@ -163,6 +179,11 @@ public class CalculatorPanel extends JPanel
 		{
 			public void actionPerformed(ActionEvent click)
 			{
+				if(hasAnswered == true)
+				{
+					numbersArea.setText("");
+					hasAnswered = false;
+				}
 				String currentText = numbersArea.getText();
 				numbersArea.setText(currentText + "3");
 			}
@@ -172,6 +193,11 @@ public class CalculatorPanel extends JPanel
 		{
 			public void actionPerformed(ActionEvent click)
 			{
+				if(hasAnswered == true)
+				{
+					numbersArea.setText("");
+					hasAnswered = false;
+				}
 				String currentText = numbersArea.getText();
 				numbersArea.setText(currentText + "4");
 			}
@@ -181,6 +207,11 @@ public class CalculatorPanel extends JPanel
 		{
 			public void actionPerformed(ActionEvent click)
 			{
+				if(hasAnswered == true)
+				{
+					numbersArea.setText("");
+					hasAnswered = false;
+				}
 				String currentText = numbersArea.getText();
 				numbersArea.setText(currentText + "5");
 			}
@@ -190,6 +221,11 @@ public class CalculatorPanel extends JPanel
 		{
 			public void actionPerformed(ActionEvent click)
 			{
+				if(hasAnswered == true)
+				{
+					numbersArea.setText("");
+					hasAnswered = false;
+				}
 				String currentText = numbersArea.getText();
 				numbersArea.setText(currentText + "6");
 			}
@@ -199,6 +235,11 @@ public class CalculatorPanel extends JPanel
 		{
 			public void actionPerformed(ActionEvent click)
 			{
+				if(hasAnswered == true)
+				{
+					numbersArea.setText("");
+					hasAnswered = false;
+				}
 				String currentText = numbersArea.getText();
 				numbersArea.setText(currentText + "7");
 			}
@@ -208,6 +249,11 @@ public class CalculatorPanel extends JPanel
 		{
 			public void actionPerformed(ActionEvent click)
 			{
+				if(hasAnswered == true)
+				{
+					numbersArea.setText("");
+					hasAnswered = false;
+				}
 				String currentText = numbersArea.getText();
 				numbersArea.setText(currentText + "8");
 			}
@@ -217,6 +263,11 @@ public class CalculatorPanel extends JPanel
 		{
 			public void actionPerformed(ActionEvent click)
 			{
+				if(hasAnswered == true)
+				{
+					numbersArea.setText("");
+					hasAnswered = false;
+				}
 				String currentText = numbersArea.getText();
 				numbersArea.setText(currentText + "9");
 			}
@@ -284,8 +335,8 @@ public class CalculatorPanel extends JPanel
 			public void actionPerformed(ActionEvent click)
 			{
 				String currentText = numbersArea.getText();
-				
-				numbersArea.setText(appController.calculateAnswer(currentText) + "");		
+				hasAnswered = true;
+				numbersArea.setText(appController.calculateAnswer(currentText) + "");
 			}
 		});
 	}
