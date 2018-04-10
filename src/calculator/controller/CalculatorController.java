@@ -50,7 +50,7 @@ public class CalculatorController
 			
 		}
 		calcScanner.close();
-		
+		//startAbstraction
 		if(operands.size() >= 2)
 		{
 			answer = appCalculator.calculateMultipleOperands(numbers, operands) + "";
@@ -59,7 +59,7 @@ public class CalculatorController
 		{
 			answer = appCalculator.calculateOneOperand(currentText, numbers) + "";
 		}
-
+		//endAbstraction
 		return answer;
 	}
 }

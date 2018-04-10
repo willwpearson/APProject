@@ -78,6 +78,7 @@ public class Calculator
 		{
 			for(int i = 0; i < operands.size(); i++)
 			{
+				//startComplexity
 				if(operands.get(i).equals("*"))
 				{
 					double temp1 = numbers.get(i);
@@ -90,6 +91,7 @@ public class Calculator
 					}
 					operands.remove(i);
 				}
+				//endComplexity
 				else if(operands.get(i).equals("÷"))
 				{
 					double temp1 = numbers.get(i);
