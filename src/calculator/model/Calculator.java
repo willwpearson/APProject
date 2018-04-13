@@ -52,19 +52,19 @@ public class Calculator
 		
 		if(currentText.contains("*"))
 		{	
-			answer = (double) (multiplyMethod(numbers.get(0), numbers.get(1)));
+			answer = multiplyMethod(numbers.get(0), numbers.get(1));
 		}
 		else if(currentText.contains("÷"))
 		{
-			answer = (double) (divideMethod(numbers.get(0), numbers.get(1)));
+			answer = divideMethod(numbers.get(0), numbers.get(1));
 		}
 		else if(currentText.contains("+"))
 		{
-			answer = (double) (addMethod(numbers.get(0), numbers.get(1)));
+			answer = addMethod(numbers.get(0), numbers.get(1));
 		}
 		else if(currentText.contains("-"))
 		{
-			answer = (double) (subtractMethod(numbers.get(0), numbers.get(1)));
+			answer = subtractMethod(numbers.get(0), numbers.get(1));
 		}
 		
 		return answer;
